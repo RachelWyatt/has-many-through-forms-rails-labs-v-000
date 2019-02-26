@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     comment = Comment.create(comment_params)
     if params[:comment][:user_id].empty?
       @user = User.new
-      @user.username = params[:comment][:user_attributes][:username]
+      @user.username = params[:comment][:user][:username]
       @user.comments << comment
       @user.save
     end
